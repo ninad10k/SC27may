@@ -1,0 +1,47 @@
+#include<stdio.h>
+//#include<conio.h>
+int main()
+{
+ float a[15],fa[15],b[15],fb[15],am,bm;
+ int i,n,j;
+ float alg,cart,apro;
+ float min(float n1,float n2);
+ printf("Enter the no. of elements:\n");
+ scanf("%d",&n);
+ am=a[0],bm=b[0];
+ printf("Enter value of X in A\n");
+ for(i=0;i<n;i++)
+ {
+ scanf("%f",&a[i]);
+ }
+ printf("Enter the membership values in A\n");
+ for(i=0;i<n;i++)
+ {
+ scanf("%f",&fa[i]);
+ }
+ printf("Enter value of X in B\n");
+ for(i=0;i<n;i++)
+ {
+ scanf("%f",&b[i]);
+ }
+ printf("Enter the membership values in B\n");
+ for(i=0;i<n;i++)
+ {
+ scanf("%f",&fb[i]);
+ }
+ //Intersection
+ for(i=0;i<n;i++)
+ {
+ if(am>fa[i])
+ am=fa[i];
+ }
+ for(j=0;j<n;j++)
+ {
+ if(bm>fb[j])
+ bm=fb[j];
+ }
+ if(am>bm)
+ printf("Intersection:%.1f\n",bm);
+ else
+ printf("Intersection:%.1f\n",am);
+}
