@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int m,n;
+cout<<"Enter no. of features and no. of training datasets:\n";
+cin>>m,n;
+int wt1[m],wt2[n];
+int input[n],[m];
+cout<<"Enter the input matrix row wise"<<endl;
+for(int i=0;i<n;i++)
+ {
+  for(j=0;j<m;j++)
+   { 
+     cin>>input[i][j];
+}
+}
+int target1[n],target2[m];
+cout<<"Enter target in binary:"<<endl;
+for(i=0;i<n;i++)
+ {
+ cin>>target1[i];
+ }
+cout<<"Enter the target in bipolar:"<<endl;
+for(int i=0;i<n;i++)
+{
+cin>>target2[i];
+}
+for(int i=0;i<m;i++)
+{
+wt1[i]=0;
+wt2[i]=0;
+}
+for(int j=0;j<n;j++)
+{
+ cout<<#j="<<j<<endl;
+for(int i=0;i<m;i++)
+{
+ wt1[i]+=(input[j][i]*target1[j]);
+cout<<"weight1 at ="<< <<"is"<<wt1[i]<<endl;
+wt2[i]+=(input[j][i]*target2[j]);
+cout<<"wt2 at 1=""<<l <<"is"<<wt2[i]<<endl;
+}
+}
+cout<<"***output***\n after 1 apoch:binary weights:"<<endl;
+for(int i=0;i<m;i++)
+{
+cout<<wt1[i]<< " ";
+}
+ cout<<"\n after 1 apoch:bipolar weights:"<<endl;
+for(int i=0;i<m;++i)
+{
+ cout<<wt2[i]<<" ";
+}
+return 0;
+}
