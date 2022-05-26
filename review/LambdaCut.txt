@@ -1,0 +1,46 @@
+package SoftComputing;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class LambdaCut {
+public static void main(String args[]) throws NumberFormatException, IOException
+{
+int m,n,i,j,k;
+float l;
+BufferedReader br = new BufferedReader(new 
+InputStreamReader(System.in));
+System.out.println ("elements in fuzzy set A:\n");
+m = Integer.parseInt(br.readLine());
+System.out.println("Enter the number of elements in fuzzy set B:\n");
+n = Integer.parseInt(br.readLine());
+float [][]u1 = new float[m+1][n+1];
+float [][]u3 = new float[m+1][n+1];
+System.out.println("Enter the entries in fuzzy relational matrix R associated 
+with fuzzy set A and B:\n");
+for(i=1;i<=m;i++)
+{
+for(j=1;j<n+1;j++)
+{
+u1[i][j] = Float.parseFloat(br.readLine());
+}
+}
+//accept lambda
+System.out.println("Enter the value of lambda:\n");
+l = Float.parseFloat(br.readLine());
+//Performing Union
+System.out.println("\n The LAMBDA CUT of fuzzy relational matrices R 
+is:\n"); 
+for(i=1;i<=m;i++)
+{
+for(k=1;k<=n;k++)
+{
+if(u1[i][k] >= l)
+u3[i][k]=1;
+else
+u3[i][k]=0;
+System.out.print(" "+u3[i][k]);
+}
+System.out.println();
+}
+}
+}

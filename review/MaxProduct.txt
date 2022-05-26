@@ -1,0 +1,72 @@
+package SoftComputing;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class MaxProduct {
+public static void main(String args[]) throws NumberFormatException, IOException
+{
+int m,n,p,i,j,k,l;
+float c[] = new float[10];
+float max;
+BufferedReader br = new BufferedReader(new 
+InputStreamReader(System.in));
+System.out.println ("elements in fuzzy set A:\n");
+m = Integer.parseInt(br.readLine());
+System.out.println("Enter the number of elements in fuzzy set B:\n");
+n = Integer.parseInt(br.readLine());
+System.out.println("Enter the number of elements in fuzzy set C:\n");
+p = Integer.parseInt(br.readLine());
+float [][]u1 = new float[m+1][n+1];
+float [][]u2 = new float[n+1][p+1];
+float [][]u3 = new float[m+1][p+1];
+System.out.println("Enter the entries in fuzzy relational matrix R associated 
+with fuzzy set A and B:\n");
+for(i=1;i<=m;i++)
+{
+for(j=1;j<n+1;j++)
+{
+u1[i][j] = Float.parseFloat(br.readLine());
+}
+}
+System.out.println("Enter the entries in fuzzy relational matrix S associated 
+with fuzzy set B and C:\n");
+for(i=1;i<=n;i++)
+{
+for(j=1;j<=p;j++)
+{
+u2[i][j] = Float.parseFloat(br.readLine());
+}
+}
+//Performing max product
+for(i=1;i<=m;i++)
+{
+for(j=1;j<=p;j++)
+{
+for(k=1,l=k+1;k<=n;k++)
+{
+if((u1[i][k]*u2[k][j])<(u1[i][l]*u2[l][j]))
+c[k]=u1[i][k]*u2[k][j];
+else
+c[k]=u1[i][l]*u2[l][j];
+}
+max=c[1];
+for(k=2;k<=n;k++)
+{
+if(c[k]>max)
+max=c[k];
+}
+u3[i][j]=max;
+}
+}
+System.out.println("\n The MAX PRODUCT of fuzzy relational matrices R 
+ans S is:\n"); 
+for(i=1;i<=m;i++)
+{
+for(j=1;j<=p;j++)
+{
+System.out.print(" "+u3[i][j]);
+}
+System.out.println("\n");
+}
+}
+}
